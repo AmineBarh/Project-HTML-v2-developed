@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elite Portfolio</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="website-content">
+        <div class="hero-img">
+            <img src="CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="Hero Image">
+        </div>
+    </div>
+    <nav>
+        <div class="info">
+            <p>Folio Vol. 1</p>
+        </div>
+        <div class="logo">
+            <p><a href="#">The Elite Portfolio</a></p>
+        </div>
+        <div class="toggle-btn">
+            <button class="burger" onclick="this.classList.toggle('active')"></button>
+        </div>
+    </nav>
+
+    <div class="overlay">
+        <div class="overlay-menu">
+            <div class="menu-item">
+                <p id="active"><a href="#">HOME</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#">WORK</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#">ABOUT</a></p>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <p><a href="#">Twitter</a></p>
+            <p>.</p>
+            <p><a href="#">Facebook</a></p>
+            <p>.</p>
+            <p><a href="#">Instagram</a></p>
+            <p>.</p>
+            <p><a href="#">Behance</a></p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const activeItemIndicator = CSSRulePlugin.getRule(".menu-item p#active::after");
+            const toggleButton = document.querySelector(".burger");
+            let isOpen = false;
+
+            gsap.set(".menu-item p", { y: -255 });
+            const timeline = gsap.timeline({ paused: true });
+
+            timeline.to(".overlay", {
+                duration: 1.5,
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inout"
+                
+            });
+
+            timeline.to(".menu-item p", {
+                duration: 1,
+                y: 0,
+                stagger: 0.2,
+                ease: "power4.out"
+            }, "-=1");
+
+            timeline.to(activeItemIndicator, {
+                width: "100%",
+                duration: 1,
+                ease: "power4.out",
+                delay: 0.5
+            }, "<");
+
+            timeline.to(".sub-nav", {
+                bottom: "5%",
+                opacity: 1,
+                duration: 0.5,
+                delay: 0.5
+            }, "<");
+
+            toggleButton.addEventListener("click", function () {
+                if (isOpen) {
+                    timeline.reverse().then(() => {
+                        isOpen = false;
+                        toggleButton.classList.remove('active');
+                    });
+                } else {
+                    timeline.play().then(() => {
+                        isOpen = true;
+                        toggleButton.classList.add('active');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
