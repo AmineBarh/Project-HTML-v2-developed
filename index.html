@@ -17,19 +17,19 @@
             <div class="container">
                 <div class="text-section">
                     <h2>Experience <br> <span id="top-notch"> top-notch </span> <br>care</h2>
-                    <p>
+                    <p id="text">
                         Step into excellence at our state-of-the-art medical center,
                         where your health journey begins with a warm welcome and
                         a commitment to exceptional care
                     </p>
                     <div id="prize">
-                        <img src="CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
+                        <img src="Images/CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
                             height="75%" width="4%">
-                        <img src="CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
+                        <img src="Images/CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
                             height="75%" width="4%">
-                        <img src="CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
+                        <img src="Images/CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
                             height="75%" width="4%">
-                        <img src="CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
+                        <img src="Images/CANSTAR-2023-Outstanding-Value-Health-Insurance-Hospital-Cover-TAS-OL.png" alt="prize"
                             height="75%" width="4%">
                     </div>
                 </div>
@@ -1220,7 +1220,7 @@
                 <p id="home"><a href="index.html">HOME</a></p>
             </div>
             <div class="menu-item">
-                <p id="aboutus"><a href="ourwork.html">OUR WORK</a></p>
+                <p><a href="ourwork.html">OUR WORK</a></p>
             </div>
             <div class="menu-item">
                 <p id="rdv"><a href="rdv.html">RDV</a></p>
@@ -1236,7 +1236,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const homeIndicator = CSSRulePlugin.getRule(".menu-item p#home::after");
-            const aboutusIndicator = CSSRulePlugin.getRule(".menu-item p#aboutus::after");
             const toggleButton = document.querySelector(".burger");
             let isOpen = false;
 
@@ -1257,13 +1256,6 @@
             }, "-=1");
 
             timeline.to(homeIndicator, {
-                width: "100%",
-                duration: 1,
-                ease: "power4.out",
-                delay: 0.5
-            }, "<");
-
-            timeline.to(aboutusIndicator, {
                 width: "100%",
                 duration: 1,
                 ease: "power4.out",
